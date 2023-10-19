@@ -13,7 +13,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 					background: "white",
 					initial: "white"
 				}
-			]
+			],
+			auth : false,
+			msg : ""
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -46,6 +48,30 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 				//reset the global store
 				setStore({ demo: demo });
+			},
+			login : (email,password)=>{
+				fetch("https://orange-eureka-5pjgjwxq9v5f76w6-3001.app.github.dev/api/login",
+				{
+					method: 'POST',
+					headers: {
+						'Content-Type': 'application/json'
+					},
+					body: JSON.stringify(
+						{
+							email : email,
+							password : password
+						}
+					)
+				})
+				.then((response) => {
+					if (response.status === 200) {
+						setStore({ auth: true });
+						return response.json()
+					}
+					return "usuario no logeado"
+				}).then((data) => {
+					localStorage.setItem("token",data.access_token)
+				})
 			}
 		}
 	};
