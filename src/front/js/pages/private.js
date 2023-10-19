@@ -5,7 +5,7 @@ import { Context } from "../store/appContext";
 export const Private = () => {
 	const { store, actions } = useContext(Context);
 
-	if (localStorage.getItem("token") !== null) {
+	if (store.auth) {
 		return (
 			<div className="container">
 				<ul className="list-group">
