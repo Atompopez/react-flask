@@ -10,7 +10,7 @@ export const Login = () => {
 
     return (
         <div className="container" style={{"width":"40%"}}>
-            { store.auth === true ? <Navigate to="/single"/> :
+            { store.auth === true ? <Navigate to="/demo"/> :
                 <>
                     <div>
                         <h1>Login</h1>
@@ -33,6 +33,9 @@ export const Login = () => {
                     <div>
                         <button onClick={()=>{actions.login(email,password)}}>Login</button>
                     </div>
+                    <Link to="/">
+                        <button className="btn btn-primary">Back home</button>
+                    </Link>
                 </>
             }
         </div>

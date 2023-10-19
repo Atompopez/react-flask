@@ -45,6 +45,9 @@ export const Singup = () => {
                     <button onClick={login}>Sing Up</button>
 				</Link>
             </div>
+            <Link to="/">
+				<button className="btn btn-primary">Back home</button>
+			</Link>
         </div>
     );
 };

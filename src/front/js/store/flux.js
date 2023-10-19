@@ -68,10 +68,14 @@ const getState = ({ getStore, getActions, setStore }) => {
 						setStore({ auth: true });
 						return response.json()
 					}
-					return "usuario no logeado"
+					return response.json()
 				}).then((data) => {
 					localStorage.setItem("token",data.access_token)
 				})
+			},
+			logout : () => {
+				setStore({auth : false});
+				localStorage.removeItem("token")
 			}
 		}
 	};
