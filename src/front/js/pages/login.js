@@ -10,7 +10,7 @@ export const Login = () => {
 
     return (
         <div className="container" style={{"width":"40%"}}>
-            { store.auth === true ? <Navigate to="/demo"/> :
+            { store.auth === true ? <Navigate to="/private"/> :
                 <>
                     <div>
                         <h1>Login</h1>
